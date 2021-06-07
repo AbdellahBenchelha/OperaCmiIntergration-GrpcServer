@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+option csharp_namespace = "CMIGrpc.Protos";
+
+service CMIProtoService
+{
+	rpc Payment(PaymentRequest) returns (PaymentModel);
+    rpc preautorisation(PaymentRequest) returns (PaymentModel);
+    rpc preautorisatio_avoid(PaymentRequest) returns (PaymentModel) ;
+     rpc preautorisatio_confirmation(PaymentRequest) returns (PaymentModel) ;
+}
+
+message PaymentRequest
+{
+    string TAG_AMOUNT=1;
+    string TAG_CURRENCY=2;
+}
+message PaymentModel{
+    string TAG_AMOUNT=1;
+    string TAG_EFT_STAN=2;
+    string TAG_CARD_NUM_MASK=3;
+}
+message AvoidRequest
+{
+
+}
+message  AvoidResponse
+{
+    
+}
